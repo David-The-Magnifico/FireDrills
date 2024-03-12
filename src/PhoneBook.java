@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class PhoneBook {
-    private ArrayList<String> contacts;
+    ArrayList<String> contacts;
 
     public PhoneBook() {
         contacts = new ArrayList<>();
@@ -111,5 +111,9 @@ public class PhoneBook {
                     System.out.println("Invalid choice");
             }
         }
+    }
+
+    public String getFirst() {
+        return contacts.get(0);
     }
 }
