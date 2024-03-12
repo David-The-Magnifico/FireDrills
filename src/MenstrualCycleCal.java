@@ -48,3 +48,10 @@ public class MenstrualCycleCal {
             LocalDate fertileEnd = ovulationDate.plusDays(4);
             System.out.println("Fertile Period: " + fertileStart.format(formatter) + " to " + fertileEnd.format(formatter));
 
+            LocalDate freePeriodStart1 = lastFlowDate.plusDays(4);
+            LocalDate freePeriodEnd1 = lastFlowDate.plusDays(9);
+            LocalDate freePeriodStart2 = nextFlowDate.minusDays(9);
+            LocalDate freePeriodEnd2 = nextFlowDate.minusDays(4);
+            System.out.println("Safe Period: " + freePeriodStart1.format(formatter) + " to " + freePeriodEnd1.format(formatter) + " and " +
+                    freePeriodStart2.format(formatter) + " to " + freePeriodEnd2.format(formatter));
+
