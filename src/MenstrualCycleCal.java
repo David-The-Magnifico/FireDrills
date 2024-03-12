@@ -12,3 +12,6 @@ public class MenstrualCycleCal {
         System.out.println("Enter your Cycle length:");
         int cycleLength = scanner.nextInt();
 
+        System.out.println("Generate flow report for how many month:");
+        int months = scanner.nextInt();
+
