@@ -51,7 +51,7 @@ public class MenstrualCycleCal {
                 LocalDate nextFlowPeriodStart = nextFlowDate.minusDays(3);
                 LocalDate nextFlowPeriodEnd = nextFlowDate.plusDays(3);
                 System.out.println("Next Flow Period: " + nextFlowPeriodStart.format(formatter) + " to " + nextFlowPeriodEnd.format(formatter));
-
+                lastFlowDate = nextFlowDate;
             }
             System.out.println("==========================================");
         }
