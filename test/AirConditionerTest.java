@@ -27,14 +27,14 @@ public class AirConditionerTest {
     void increasingTemperatureShouldIncreaseTemperature() {
         AirConditioner ac = new AirConditioner(true);
         ac.increaseTemperature();
-        assertEquals(24, ac.getTemperature());
+        assertEquals(23, ac.getTemperature());
     }
 
     @Test
     void decreasingTemperatureShouldDecreaseTemperature() {
         AirConditioner ac = new AirConditioner(true);
         ac.decreaseTemperature();
-        assertEquals(22, ac.getTemperature());
+        assertEquals(21, ac.getTemperature());
     }
 
     @Test
