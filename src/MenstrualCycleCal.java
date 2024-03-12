@@ -38,3 +38,6 @@ public class MenstrualCycleCal {
             System.out.println("==========================================");
             System.out.println();
 
+            LocalDate nextFlowDate = lastFlowDate.plusDays(cycleLength);
+            System.out.println("Next Flow Date: " + nextFlowDate.format(formatter));
+
