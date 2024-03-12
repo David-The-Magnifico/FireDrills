@@ -22,3 +22,7 @@ public class MenstrualCycleCal {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate lastFlowDate = LocalDate.parse(inputDate, formatter);
 
+        System.out.println("Do you want to see your Flow Report (Yes/No)?:");
+        String showReport = scanner.nextLine();
+
+
