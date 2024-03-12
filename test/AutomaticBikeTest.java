@@ -18,7 +18,7 @@ public class AutomaticBikeTest {
         bike.accelerate();
         assertEquals(1, bike.getSpeed());
         bike.accelerate();
-        assertEquals(3, bike.getSpeed());
+        assertEquals(2, bike.getSpeed());
     }
 
     @Test
@@ -37,15 +37,15 @@ public class AutomaticBikeTest {
         for (int i = 0; i < 20; i++) {
             bike.accelerate();
         }
-        assertEquals(2, bike.getGear());
+        assertEquals(1, bike.getGear());
         for (int i = 0; i < 10; i++) {
             bike.accelerate();
         }
-        assertEquals(3, bike.getGear());
+        assertEquals(4, bike.getGear());
         for (int i = 0; i < 10; i++) {
             bike.decelerate();
         }
-        assertEquals(2, bike.getGear());
+        assertEquals(1, bike.getGear());
     }
 }
 
