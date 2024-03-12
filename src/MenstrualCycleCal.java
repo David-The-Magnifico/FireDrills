@@ -44,3 +44,7 @@ public class MenstrualCycleCal {
             LocalDate ovulationDate = lastFlowDate.plusDays(cycleLength - 14);
             System.out.println("Ovulation Date: " + ovulationDate.format(formatter));
 
+            LocalDate fertileStart = ovulationDate.minusDays(3);
+            LocalDate fertileEnd = ovulationDate.plusDays(4);
+            System.out.println("Fertile Period: " + fertileStart.format(formatter) + " to " + fertileEnd.format(formatter));
+
