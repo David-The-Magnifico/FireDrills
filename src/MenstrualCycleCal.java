@@ -25,4 +25,16 @@ public class MenstrualCycleCal {
         System.out.println("Do you want to see your Flow Report (Yes/No)?:");
         String showReport = scanner.nextLine();
 
+        if (showReport.equalsIgnoreCase("Yes")) {
+            System.out.println("Please wait while we generate your flow report......");
+            System.out.println();
+            System.out.println("Loading >>>>>>>>>>>>>>>>>>>>>>");
+            System.out.println();
+            System.out.println("=====================================");
+            System.out.println("Flow report is loaded successfully!!!");
+            System.out.println("=====================================");
+            System.out.println();
+            System.out.println("             FLOW REPORT                  ");
+            System.out.println("==========================================");
+            System.out.println();
 
