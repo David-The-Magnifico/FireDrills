@@ -12,7 +12,7 @@ public class MenstrualCycleCal {
         System.out.println("Enter your Cycle length:");
         int cycleLength = scanner.nextInt();
 
-        System.out.println("Generate flow report for how many month:");
+        System.out.println("Generate flow report for how many months:");
         int months = scanner.nextInt();
 
         System.out.println("Date of last flow (in the format of DD/MM/YYYY):");
@@ -26,38 +26,33 @@ public class MenstrualCycleCal {
         String showReport = scanner.nextLine();
 
         if (showReport.equalsIgnoreCase("Yes")) {
-            System.out.println("Please wait while we generate your flow report......");
-            System.out.println();
-            System.out.println("Loading >>>>>>>>>>>>>>>>>>>>>>");
-            System.out.println();
-            System.out.println("=====================================");
-            System.out.println("Flow report is loaded successfully!!!");
-            System.out.println("=====================================");
-            System.out.println();
-            System.out.println("             FLOW REPORT                  ");
-            System.out.println("==========================================");
-            System.out.println();
+            for (int i = 0; i < months; i++) {
+                System.out.println("=====================================");
+                System.out.println("Flow report for Month " + (i + 1));
+                System.out.println("=====================================");
 
-            LocalDate nextFlowDate = lastFlowDate.plusDays(cycleLength);
-            System.out.println("Next Flow Date: " + nextFlowDate.format(formatter));
+                LocalDate nextFlowDate = lastFlowDate.plusDays(cycleLength);
+                System.out.println("Next Flow Date: " + nextFlowDate.format(formatter));
 
-            LocalDate ovulationDate = lastFlowDate.plusDays(cycleLength - 14);
-            System.out.println("Ovulation Date: " + ovulationDate.format(formatter));
+                LocalDate ovulationDate = lastFlowDate.plusDays(cycleLength - 14);
+                System.out.println("Ovulation Date: " + ovulationDate.format(formatter));
 
-            LocalDate fertileStart = ovulationDate.minusDays(3);
-            LocalDate fertileEnd = ovulationDate.plusDays(4);
-            System.out.println("Fertile Period: " + fertileStart.format(formatter) + " to " + fertileEnd.format(formatter));
+                LocalDate fertileStart = ovulationDate.minusDays(3);
+                LocalDate fertileEnd = ovulationDate.plusDays(4);
+                System.out.println("Fertile Period: " + fertileStart.format(formatter) + " to " + fertileEnd.format(formatter));
 
-            LocalDate freePeriodStart1 = lastFlowDate.plusDays(4);
-            LocalDate freePeriodEnd1 = lastFlowDate.plusDays(9);
-            LocalDate freePeriodStart2 = nextFlowDate.minusDays(9);
-            LocalDate freePeriodEnd2 = nextFlowDate.minusDays(4);
-            System.out.println("Safe Period: " + freePeriodStart1.format(formatter) + " to " + freePeriodEnd1.format(formatter) + " and " +
-                    freePeriodStart2.format(formatter) + " to " + freePeriodEnd2.format(formatter));
+                LocalDate freePeriodStart1 = lastFlowDate.plusDays(4);
+                LocalDate freePeriodEnd1 = lastFlowDate.plusDays(9);
+                LocalDate freePeriodStart2 = nextFlowDate.minusDays(9);
+                LocalDate freePeriodEnd2 = nextFlowDate.minusDays(4);
+                System.out.println("Safe Period: " + freePeriodStart1.format(formatter) + " to " + freePeriodEnd1.format(formatter) + " and " +
+                        freePeriodStart2.format(formatter) + " to " + freePeriodEnd2.format(formatter));
 
-            LocalDate nextFlowPeriodStart = nextFlowDate.minusDays(3);
-            LocalDate nextFlowPeriodEnd = nextFlowDate.plusDays(3);
-            System.out.println("Next Flow Period: " + nextFlowPeriodStart.format(formatter) + " to " + nextFlowPeriodEnd.format(formatter));
+                LocalDate nextFlowPeriodStart = nextFlowDate.minusDays(3);
+                LocalDate nextFlowPeriodEnd = nextFlowDate.plusDays(3);
+                System.out.println("Next Flow Period: " + nextFlowPeriodStart.format(formatter) + " to " + nextFlowPeriodEnd.format(formatter));
+
+            }
             System.out.println("==========================================");
         }
     }
