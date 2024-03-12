@@ -41,3 +41,6 @@ public class MenstrualCycleCal {
             LocalDate nextFlowDate = lastFlowDate.plusDays(cycleLength);
             System.out.println("Next Flow Date: " + nextFlowDate.format(formatter));
 
+            LocalDate ovulationDate = lastFlowDate.plusDays(cycleLength - 14);
+            System.out.println("Ovulation Date: " + ovulationDate.format(formatter));
+
