@@ -9,3 +9,6 @@ public class MenstrualCycleCal {
         System.out.println("Name:");
         String name = scanner.nextLine();
 
+        System.out.println("Enter your Cycle length:");
+        int cycleLength = scanner.nextInt();
+
