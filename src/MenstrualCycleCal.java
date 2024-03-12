@@ -15,3 +15,7 @@ public class MenstrualCycleCal {
         System.out.println("Generate flow report for how many month:");
         int months = scanner.nextInt();
 
+        System.out.println("Date of last flow (in the format of DD/MM/YYYY):");
+        scanner.nextLine();
+        String inputDate = scanner.nextLine();
+
