@@ -19,3 +19,6 @@ public class MenstrualCycleCal {
         scanner.nextLine();
         String inputDate = scanner.nextLine();
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate lastFlowDate = LocalDate.parse(inputDate, formatter);
+
