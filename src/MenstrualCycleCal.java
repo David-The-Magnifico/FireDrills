@@ -55,3 +55,10 @@ public class MenstrualCycleCal {
             System.out.println("Safe Period: " + freePeriodStart1.format(formatter) + " to " + freePeriodEnd1.format(formatter) + " and " +
                     freePeriodStart2.format(formatter) + " to " + freePeriodEnd2.format(formatter));
 
+            LocalDate nextFlowPeriodStart = nextFlowDate.minusDays(3);
+            LocalDate nextFlowPeriodEnd = nextFlowDate.plusDays(3);
+            System.out.println("Next Flow Period: " + nextFlowPeriodStart.format(formatter) + " to " + nextFlowPeriodEnd.format(formatter));
+            System.out.println("==========================================");
+        }
+    }
+}
