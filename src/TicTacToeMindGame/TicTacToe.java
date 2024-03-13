@@ -10,54 +10,63 @@ public class TicTacToe {
     static Cell[][] board = new Cell[3][3];
 
     static Player currentPlayer = player;
+
+    public static void main(String[] args) {
+        initializeBoard(board);
+        playGame();
+    }
+
     static void playGame() {
         boolean gameOver = false;
         while (!gameOver) {
             displayBoard();
             if (currentPlayer == player) {
-                System.out.println(currentPlayer.getName() + " enter your move(1 - 9)");
-                int move = scanner.nextInt();
-                int row = (move - 1) / 3;
-                int column = (move - 1) % 3;
-                try {
-                    if (isValidMove(board, row, column)) {
-                        board[row][column] = currentPlayer.getCell();
-                        if (checkWin(board, currentPlayer.getCell())) {
-                            displayBoard();
-                            System.out.println(currentPlayer.getName() + " Wins");
-                            gameOver = true;
-                        } else if (isBoardFull(board)) {
-                            displayBoard();
-                            System.out.println("It's a draw");
-                            gameOver = true;
-                        } else {
-                            currentPlayer = computer;
-                        }
-                    }
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
+                playerMove();
             } else {
-                int computerMove = generateComputerMove();
-                int row = (computerMove - 1) / 3;
-                int column = (computerMove - 1) % 3;
-                if (isValidMove(board, row, column)) {
-                    board[row][column] = currentPlayer.getCell();
-                    if (checkWin(board, currentPlayer.getCell())) {
-                        displayBoard();
-                        System.out.println(currentPlayer.getName() + " Wins");
-                        gameOver = true;
-                    } else if (isBoardFull(board)) {
-                        displayBoard();
-                        System.out.println("It's a draw");
-                        gameOver = true;
-                    } else {
-                        currentPlayer = player;
-                    }
-                }
+                computerMove();
+            }
+            if (checkWin(board, currentPlayer.getCell())) {
+                displayBoard();
+                System.out.println(currentPlayer.getName() + " Wins");
+                gameOver = true;
+            } else if (isBoardFull(board)) {
+                displayBoard();
+                System.out.println("It's a draw");
+                gameOver = true;
+            } else {
+                currentPlayer = (currentPlayer == player) ? computer : player;
             }
         }
     }
+
+    static void playerMove() {
+        System.out.println(currentPlayer.getName() + " enter your move(1 - 9)");
+        int move = scanner.nextInt();
+        int row = (move - 1) / 3;
+        int column = (move - 1) % 3;
+        try {
+            if (isValidMove(row, column)) {
+                board[row][column] = currentPlayer.getCell();
+            } else {
+                playerMove();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            playerMove();
+        }
+    }
+
+    static void computerMove() {
+        int computerMove = generateComputerMove();
+        int row = (computerMove - 1) / 3;
+        int column = (computerMove - 1) % 3;
+        if (isValidMove(row, column)) {
+            board[row][column] = currentPlayer.getCell();
+        } else {
+            computerMove();
+        }
+    }
+
     public static void displayBoard() {
         System.out.println("=============");
         for (int count = 0; count < 3; count++) {
@@ -68,6 +77,7 @@ public class TicTacToe {
             System.out.println("\n=============");
         }
     }
+
     public static void initializeBoard(Cell[][] board) {
         for (int count = 0; count < 3; count++) {
             for (int counter = 0; counter < 3; counter++) {
@@ -75,10 +85,12 @@ public class TicTacToe {
             }
         }
     }
-    public static boolean isValidMove(Cell[][] board, int row, int column) {
+
+    public static boolean isValidMove(int row, int column) {
         if (row >= 0 && row <= 2 && column >= 0 && column <= 2 && board[row][column] == Cell.E) return true;
         throw new InvalidMoveError("Error: cell is occupied");
     }
+
     static boolean checkWin(Cell[][] board, Cell cell) {
         for (int count = 0; count < 3; count++) {
             if (board[count][0] == cell && board[count][1] == cell && board[count][2] == cell ||
@@ -87,6 +99,7 @@ public class TicTacToe {
         }
         return board[2][0] == cell && board[1][1] == cell && board[0][2] == cell;
     }
+
     public static boolean isBoardFull(Cell[][] board) {
         for (int count = 0; count < 3; count++) {
             for (int counter = 0; counter < 3; counter++) {
@@ -95,6 +108,7 @@ public class TicTacToe {
         }
         return true;
     }
+
     public static int generateComputerMove() {
         Random random = new Random();
         return random.nextInt(9) + 1;
