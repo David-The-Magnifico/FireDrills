@@ -1,5 +1,3 @@
-package CreditCardValidator;
-
 import java.util.Scanner;
 
 public class CreditCardValidator {
